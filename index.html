@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alarm Project</title>
+    <link rel="stylesheet" href="index.css" />
+    <script defer src="index.js"></script>
+  </head>
+  <div class="background">
+    <div class="schedule-container">
+      <h2>Schedule a Task</h2>
+      <form class="schedule-task">
+        <div class="schedule-task__label">Task Name</div>
+        <div class="schedule-task__value">
+          <input type="text" name="task-name" value="" required/>
+        </div>
+
+        <div class="schedule-task__label">Description</div>
+        <div class="schedule-task__value">
+          <input type="textarea" name="task-desc" value=""  required/>
+        </div>
+
+        <div class="schedule-task__label">Date</div>
+        <div class="schedule-task__value">
+          <input type="date" name="date-value" required/>
+
+          <input type="time" name="time-value" required/>
+        </div>
+
+        <button type="submit" class="schedule-task__submit">Submit</button>
+      </form>
+    </div>
+
+    <div class="nav-container">
+      <div id="tabs">
+        <ul className="tabs-list">
+          <li>
+            <button id="prev-tasks-tab">Previous Tasks</button>
+          </li>
+          <li>
+            <button id="theme-tab">Theme</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</html>
