@@ -25,7 +25,6 @@ body {
     border: 2px solid rgb(255, 234, 234);
     grid-column: 1 / 2;
     grid-row: 1 / 3;
-
     align-content: center;
 }
 
@@ -33,23 +32,69 @@ body {
     font-size: 16pt;
     font-family: Arial;
     margin-left: 5%;
+    display: inline-flex;
+    align-items: center;
 }
 
 .scroll-container {
     overflow: auto;
     width: 90%;
-    height: 90%;
+    height: 85%;
     align-self: center;
+    padding: 0% 5% 5% 5%;
+    justify-content: space-between;
 }
 
-.upcoming_tasks {
+.upcoming-tasks {
     min-height: 2em;
     padding: 0.5em;
     background-color: hsl(0, 0%, 95%);
     border: 1px solid hsl(0, 0%, 96%);
     border-radius: 4px;
     padding: 0;
+    align-self: center;
 }
+
+.task-container {
+    list-style: none;
+    font-size: 12pt;
+
+    background-color: rgb(234, 234, 234);
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 2px;
+    margin-bottom: 2%;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.date-time {
+    grid-column: 0 / 1;
+    padding: none;
+    margin: none;
+    border: none;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cancel-button {
+    padding: 1vh;
+    margin-right: 1vh;
+    border: none;
+    background-color: transparent;
+}
+
+.cancel-button:hover {
+    cursor: pointer;
+    background-color: rgb(230, 230, 230);
+    border-radius: 5%;
+}
+
+
 
 .gif {
     border: 2px solid rgb(255, 255, 255);
@@ -91,4 +136,8 @@ body {
 
 .schedule-task__submit {
     margin-top: 5%;
+}
+
+.schedule-task__submit:hover {
+    cursor: pointer;
 }
