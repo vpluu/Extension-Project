@@ -1,0 +1,94 @@
+.background {
+    border: none;
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 5vh;
+    row-gap: 5vh;
+
+    align-self: center;
+    background-color: transparent;
+    height: 90%;
+    width: 90%;
+    border-radius: 20px;
+
+}
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.upcoming-container {
+    border: 2px solid rgb(255, 234, 234);
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+
+    align-content: center;
+}
+
+.upcoming-container > p {
+    font-size: 16pt;
+    font-family: Arial;
+    margin-left: 5%;
+}
+
+.scroll-container {
+    overflow: auto;
+    width: 90%;
+    height: 90%;
+    align-self: center;
+}
+
+.upcoming_tasks {
+    min-height: 2em;
+    padding: 0.5em;
+    background-color: hsl(0, 0%, 95%);
+    border: 1px solid hsl(0, 0%, 96%);
+    border-radius: 4px;
+    padding: 0;
+}
+
+.gif {
+    border: 2px solid rgb(255, 255, 255);
+    grid-column: 2 / 2; 
+
+    height: 30vh;
+    background-color: white;
+}
+
+.schedule-container {
+    border: 2px solid rgb(255, 234, 234);
+    grid-column: 2 / 2;
+    grid-row: 2 / 2;
+    
+    margin: none;
+    padding-left: 5%;
+    font-family: Arial;
+    align-items: center;
+
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.schedule-task {
+    height: 90%;
+    width: 100%;
+}
+
+.schedule-task > p {
+    font-size: 16pt;
+    padding-top: 5px;
+    margin: 0;
+}
+
+
+.schedule-task__label {
+    margin-top: 5%;
+}
+
+.schedule-task__submit {
+    margin-top: 5%;
+}

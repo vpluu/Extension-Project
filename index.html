@@ -9,9 +9,21 @@
     <script defer src="index.js"></script>
   </head>
   <div class="background">
+    <div class="upcoming-container">
+      <p>Upcoming Tasks</p>
+      <div class="scroll-container">
+        <pre class="upcoming-tasks"></pre>
+      </div>
+    </div>
+
+    <div class="gif">
+      <p>insert gif</p>
+    </div>
+
     <div class="schedule-container">
-      <h2>Schedule a Task</h2>
+
       <form class="schedule-task">
+        <p>Schedule a Task</p>
         <div class="schedule-task__label">Task Name</div>
         <div class="schedule-task__value">
           <input type="text" name="task-name" value="" required/>
@@ -33,18 +45,7 @@
       </form>
     </div>
 
-    <div class="nav-container">
-      <div id="tabs">
-        <ul className="tabs-list">
-          <li>
-            <button id="prev-tasks-tab">Previous Tasks</button>
-          </li>
-          <li>
-            <button id="theme-tab">Theme</button>
-          </li>
-        </ul>
-      </div>
-    </div>
+
 
   </div>
 </html>
