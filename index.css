@@ -10,7 +10,7 @@
     height: 90%;
     width: 90%;
     border-radius: 20px;
-
+    position: absolute;
 }
 
 body {
@@ -37,8 +37,8 @@ body {
 }
 
 .scroll-container {
-    overflow: auto;
-    width: 90%;
+    overflow: hidden;
+    max-width: 90%;
     height: 85%;
     align-self: center;
     padding: 0% 5% 5% 5%;
@@ -58,7 +58,6 @@ body {
 .task-container {
     list-style: none;
     font-size: 12pt;
-
     background-color: rgb(234, 234, 234);
     border: 1px solid grey;
     border-radius: 5px;

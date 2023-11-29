@@ -12,6 +12,28 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const taskData = new FormData(form);
+    const data = Object.fromEntries(taskData);
+
+    const taskName = data['task-name'];
+    const taskDesc = data['task-desc'];
+    const taskDate = data['task-date'];
+    const taskTime = data['task-time'];
+
+    const dateTime = `${taskDate}T${taskTime}`;
+    const alarmDateTime = new Date(dateTime).getTime();
+
+    const alarmInfo = {};
+    alarmInfo.name = taskName;
+    alarmInfo.desc = taskDesc;
+    alarmInfo.dateTime = alarmDateTime;
+
+    createAlarm(alarmInfo);
+});
+
 function getUpcomingTasks(callback) {
     chrome.alarms.getAll(function (alarms) {
       callback(alarms);
@@ -52,6 +74,7 @@ function displayUpcomingTasks(alarms) {
             // Call a function to handle canceling the alarm
             cancelTask(alarm.name);
             // Update the displayed alarms after canceling
+            refreshPage();
             displayUpcomingTasks(alarms.filter(a => a.name !== alarm.name));
           });
     
@@ -81,32 +104,29 @@ function formatDate(date) {
     return new Intl.DateTimeFormat('en-US', options).format(date);
   }
 
-form.addEventListener('submit', (event) => {
-    event.preventDefault();
-
-    const taskData = new FormData(form);
-    const data = Object.fromEntries(taskData);
-
-    const taskName = data['task-name'];
-    const taskDesc = data['task-desc'];
-    const taskDate = data['task-date'];
-    const taskTime = data['task-time'];
-
-    const dateTime = `${taskDate}T${taskTime}`;
-    const alarmDateTime = new Date(dateTime).getTime();
-
-    const alarmInfo = {};
-    alarmInfo.name = taskName;
-    alarmInfo.desc = taskDesc;
-    alarmInfo.dateTime = alarmDateTime;
-
-    createAlarm(alarmInfo);
-});
-
 function createAlarm(alarmInfo) {
     chrome.alarms.create(alarmInfo.name, {
         when: alarmInfo.dateTime
     });
 
     alert(`Task alarm: "${alarmInfo.name}" set.`);
+    refreshPage();
+}
+
+function cancelTask(name) {
+    return chrome.alarms.clear(name, (cleared) => {
+        if (cleared) {
+            console.log(`Task canceled: "${name}"`);
+        } else {
+            console.log(`Error cancelling task: "${name}"`);
+        }
+    })
+}
+
+function refreshPage() {
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+        if (tabs.length > 0) {
+            chrome.tabs.reload(tabs[0].id);
+        }
+    });
 }
