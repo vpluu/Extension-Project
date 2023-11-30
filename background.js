@@ -12,3 +12,13 @@ chrome.runtime.onInstalled.addListener(({ reason }) => {
     chrome.tabs.create({ url: 'index.html' });
   }
   
+  chrome.alarms.onAlarm.addListener(() => {
+
+    console.log("Inside on alarm listener.");
+    chrome.notifications.create({
+      type: 'basic',
+      iconUrl: 'drink_water128.png',
+      title: 'Task Alarm',
+      message: "meow",
+    });
+  });

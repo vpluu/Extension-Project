@@ -6,6 +6,9 @@
     "background": {
       "service_worker": "bg-wrapper.js"
     },
-    "permissions": ["alarms"],
-    "action": {}
+    "permissions": ["alarms", "notifications", "tabs"],
+    "action": {},
+    "icons": {
+      "128": "drink_water128.png"
+    }
   }
