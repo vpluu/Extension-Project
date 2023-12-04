@@ -19,7 +19,6 @@ form.addEventListener('submit', (event) => {
     const data = Object.fromEntries(taskData);
 
     const taskName = data['task-name'];
-    const taskDesc = data['task-desc'];
     const taskDate = data['task-date'];
     const taskTime = data['task-time'];
 
@@ -28,7 +27,6 @@ form.addEventListener('submit', (event) => {
 
     const alarmInfo = {};
     alarmInfo.name = taskName;
-    alarmInfo.desc = taskDesc;
     alarmInfo.dateTime = alarmDateTime;
 
     createAlarm(alarmInfo);
@@ -42,7 +40,7 @@ function getUpcomingTasks(callback) {
 
 function displayUpcomingTasks(alarms) {
     const upcomingTasksElement = document.getElementById('scroll-container');
-  
+    
     if (alarms.length > 0) {
         // Build a list of upcoming alarms
         alarms.forEach(function (alarm) {
@@ -87,8 +85,15 @@ function displayUpcomingTasks(alarms) {
           upcomingTasksElement.appendChild(taskContainer);
         });
       } else {
-        // Display a message if there are no upcoming alarms
-        upcomingTasksElement.textContent = 'No upcoming tasks.';
+
+        const message = document.createElement('p');
+        message.textContent = 'No upcoming tasks.';
+
+        const defaultImageElement = document.createElement('img');
+        defaultImageElement.src = 'panda.gif';
+      
+        upcomingTasksElement.appendChild(message);
+        upcomingTasksElement.appendChild(defaultImageElement);
       }
   }
 
@@ -106,10 +111,14 @@ function formatDate(date) {
 
 function createAlarm(alarmInfo) {
     chrome.alarms.create(alarmInfo.name, {
-        when: alarmInfo.dateTime
+        when: alarmInfo.dateTime,
     });
 
-    alert(`Task alarm: "${alarmInfo.name}" set.`);
+    message = document.getElementById('message');
+    message.classList.add('message-green');
+
+    message.textContent = 'Alarm created.';
+
     refreshPage();
 }
 
@@ -130,3 +139,4 @@ function refreshPage() {
         }
     });
 }
+

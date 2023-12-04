@@ -7,8 +7,10 @@
       "service_worker": "bg-wrapper.js"
     },
     "permissions": ["alarms", "notifications", "tabs"],
-    "action": {},
+    "action": {
+      "default_popup": "popup.html"
+    },
     "icons": {
-      "128": "drink_water128.png"
+      "128": "logo128.png"
     }
   }

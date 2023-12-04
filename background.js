@@ -6,19 +6,20 @@ chrome.runtime.onInstalled.addListener(({ reason }) => {
     openTab();
   });
 
-  chrome.action.onClicked.addListener(openTab);
-
   function openTab() {
     chrome.tabs.create({ url: 'index.html' });
   }
   
-  chrome.alarms.onAlarm.addListener(() => {
+  chrome.alarms.onAlarm.addListener(handleAlarm);
 
-    console.log("Inside on alarm listener.");
+  function handleAlarm(alarm) {
+    const alarmName = alarm.name || 'Task alarm';
+
     chrome.notifications.create({
-      type: 'basic',
-      iconUrl: 'drink_water128.png',
-      title: 'Task Alarm',
-      message: "meow",
-    });
-  });
+      type:'basic',
+      iconUrl:'bubbles.gif',
+      title:alarmName,
+      message:"It's time!"
+    })
+  }
+

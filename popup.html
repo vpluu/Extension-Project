@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Task Popup</title>
+    <style>
+      body {
+        text-align: center;
+        border: 7px solid rgb(255, 234, 234);
+        border-radius: 10px;
+        padding: 6px;
+        font-family: 'Courier New', Courier, monospace;
+        color: rgb(159, 159, 159);
+      }
+      
+      .title {
+        font-size: 10pt;
+        font-weight: bold;
+        margin-bottom: 3px;
+      }
+
+      #logo {
+        width: 100px;
+        margin: 5px;
+      }
+
+      input {
+        margin-bottom: 5px;
+        color: rgb(139, 139, 139);
+        border: 1px solid rgb(181, 181, 181);
+        border-radius: 5px;
+        padding: 5px;
+      }
+
+      #date,
+      #time {
+        margin-bottom: 5px;
+        width: 100px;
+        color: rgb(181, 181, 181);
+      }
+
+      #view-tasks {
+        background-color: transparent;
+        font-size: 8pt;
+        border: none;
+        color: rgb(222, 222, 222);
+        border-radius: 5px;
+      }
+
+      #view-tasks:hover {
+        background-color: rgb(246, 246, 246);
+      }
+
+      .schedule-task__submit {
+        margin: 5px;
+        outline: none;
+
+        font-weight: bold;
+        color: rgb(255, 255, 255);
+        background-color: rgb(255, 234, 234);
+        border: none;
+        border-radius: 5px;
+        padding: 5px;
+      }
+
+      .schedule-task__submit:hover {
+       background-color: rgb(245, 224, 224)
+      }
+    </style>
+  </head>
+  <body>
+    <img src="./logo128.png" id="logo" />
+    <form class="schedule-task">
+        <div class="title">schedule a Task</div>
+        <div class="schedule-task__label">task name</div>
+        <div class="schedule-task__value">
+          <input type="text" name="task-name" value="" maxLength="20" required/>
+        </div>
+
+        <div class="schedule-task__label">date</div>
+        <div class="schedule-task__value">
+          <input type="date" name="task-date" id="date" required/>
+
+          <input type="time" name="task-time" id="time" required/>
+        </div>
+
+        <button type="submit" class="schedule-task__submit">submit</button>
+      </form>
+
+      <button type="button" id="view-tasks">view tasks</button>
+      <script src="popup.js"></script>
+  </body>
+</html>

@@ -15,31 +15,28 @@
     </div>
 
     <div class="gif">
-      <p>insert gif</p>
+      <img src="./bubbles.gif" id="bubbles" />
     </div>
 
     <div class="schedule-container">
 
       <form class="schedule-task">
-        <p>Schedule a Task</p>
-        <div class="schedule-task__label">Task Name</div>
+        <p>schedule a task</p>
+        <div class="schedule-task__label">task name</div>
         <div class="schedule-task__value">
-          <input type="text" name="task-name" value="" maxLength="30" required/>
+          <input type="text" name="task-name" value="" maxLength="20" required/>
         </div>
 
-        <div class="schedule-task__label">Description</div>
-        <div class="schedule-task__value">
-          <input type="textarea" name="task-desc" value=""  required/>
-        </div>
-
-        <div class="schedule-task__label">Date</div>
+        <div class="schedule-task__label">date</div>
         <div class="schedule-task__value">
           <input type="date" name="task-date" required/>
 
           <input type="time" name="task-time" required/>
         </div>
 
-        <button type="submit" class="schedule-task__submit">Submit</button>
+        <button type="submit" class="schedule-task__submit">submit</button>
+
+        <div id="message"></div>
       </form>
     </div>
 
